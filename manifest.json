@@ -1,0 +1,17 @@
+{
+  "name": "Registro de Incidencias en Campo",
+  "short_name": "Incidencias",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f5f8",
+  "theme_color": "#174a7e",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23174a7e'/%3E%3Cpath d='M32 12v40M12 32h40' stroke='white' stroke-width='8'/%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

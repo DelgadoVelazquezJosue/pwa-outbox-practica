@@ -1,0 +1,193 @@
+/* Estas reglas generales mantienen el diseño legible en pantallas pequeñas y grandes. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: #f2f5f8;
+  color: #203040;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* El encabezado alinea el título y el indicador de conexión. */
+.encabezado,
+.encabezado-bandeja {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.encabezado {
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+main {
+  display: grid;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Las tarjetas separan visualmente el formulario y la bandeja de salida. */
+.card {
+  padding: 24px;
+  border: 1px solid #dce3e9;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgb(25 48 70 / 7%);
+}
+
+/* Los campos ocupan todo el ancho para que el formulario sea fácil de completar. */
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #b9c6d1;
+  border-radius: 6px;
+  color: inherit;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Los botones tienen un aspecto común y un color destacado para enviar el reporte. */
+button {
+  width: fit-content;
+  margin-top: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #174a7e;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+button:hover {
+  background: #10385f;
+}
+
+.boton-secundario {
+  margin-top: 0;
+  background: #52677b;
+}
+
+.boton-secundario:hover {
+  background: #3e5061;
+}
+
+/* La etiqueta de red cambia de color según la conexión del dispositivo. */
+.badge {
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.badge.online {
+  background: #25834a;
+}
+
+.badge.offline {
+  background: #c43b3b;
+}
+
+/* Cada incidencia ocupa una fila y conserva espacio entre su texto y su estado. */
+.lista-outbox {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.elemento-outbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px;
+  border-left: 5px solid #d98b22;
+  border-radius: 6px;
+  background: #fff8eb;
+}
+
+.elemento-outbox.sincronizado {
+  border-left-color: #25834a;
+  background: #eff9f1;
+}
+
+.detalle-incidencia {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.detalle-incidencia strong,
+.detalle-incidencia p {
+  display: block;
+  margin: 0 0 5px;
+}
+
+.detalle-incidencia p {
+  color: #52677b;
+}
+
+.estado-registro {
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.estado-registro.pendiente {
+  color: #a45b00;
+}
+
+.estado-registro.sincronizado {
+  color: #1d713e;
+}
+
+/* En móviles, el encabezado de la bandeja puede ocupar dos líneas sin apretarse. */
+@media (max-width: 560px) {
+  body {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .encabezado,
+  .encabezado-bandeja {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

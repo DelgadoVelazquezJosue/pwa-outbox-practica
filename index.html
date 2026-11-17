@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174a7e">
+  <title>Registro de Incidencias en Campo</title>
+  <!-- Estos archivos usan rutas relativas para funcionar en un subdirectorio de GitHub Pages. -->
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+  <!-- El encabezado muestra el propósito de la aplicación y el estado de conexión. -->
+  <header class="encabezado">
+    <h1>Registro de Incidencias en Campo</h1>
+    <span id="badge-red" class="badge online">En Línea</span>
+  </header>
+
+  <main>
+    <!-- El formulario permite guardar los datos de una incidencia para enviarla. -->
+    <section class="card" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Nuevo reporte</h2>
+      <form id="form-incidencia">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="titulo" type="text" required>
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+
+        <button type="submit">Enviar Reporte</button>
+      </form>
+    </section>
+
+    <!-- Esta lista enseña los reportes que siguen en IndexedDB y los ya enviados. -->
+    <section class="card" aria-labelledby="titulo-bandeja">
+      <div class="encabezado-bandeja">
+        <h2 id="titulo-bandeja">Bandeja de Salida (IndexedDB)</h2>
+        <button id="btn-purgar" class="boton-secundario" type="button">Purgar Sincronizados</button>
+      </div>
+      <ul id="lista-outbox" class="lista-outbox" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <!-- Se carga primero el acceso a IndexedDB y después el código de la interfaz. -->
+  <script src="./db-helper.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
